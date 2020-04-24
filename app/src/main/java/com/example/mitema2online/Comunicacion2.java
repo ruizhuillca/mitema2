@@ -2,12 +2,12 @@ package com.example.mitema2online;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
-public class Comunicacion2
-
-        extends AppCompatActivity {
+public class Comunicacion2 extends AppCompatActivity {
     TextView txtmensaje;
     String nombre;
     int edad;
@@ -26,5 +26,17 @@ public class Comunicacion2
             evaluacion = 2000;
         txtmensaje.setText("Buen día "+ nombre + " por su edad de " + edad +
                 " podemos ofrecerle " + evaluacion + "soles");
+    }
+    public void aceptar(View view){
+        Intent intent = new Intent();
+        intent.putExtra("resultado","aceptado");
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+    public void rechazar(View view){
+        Intent intent = new Intent();
+        intent.putExtra("resultado","rechazado");
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }
